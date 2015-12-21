@@ -1,4 +1,8 @@
-PrimeFactors
-============
+Simple Prime Factorialization Kata Using Elixir
+================================================
 
-** TODO: Add description **
+Very early attempt at learning functional programming and Elixir.
+
+Looking for refactor suggestions.
+ 
+
