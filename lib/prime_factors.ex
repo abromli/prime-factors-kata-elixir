@@ -1,41 +1,20 @@
 defmodule PrimeFactors do
 
-    def generate(number) when number <= 1 do
-    		[]
-    end
+  def factors_for(number) do
+    factorize(number, 2, [])
+  end
 
-    def generate(number) when rem(number,2) == 0 do
-    	[2 | generate(div(number,2))]  # even number calculations
-    end 
+  defp factorize(number, factor, prime_factors) when number < factor do
+    prime_factors
+  end
 
-    def generate(number) do
+  defp factorize(number, factor, prime_factors) when rem(number, factor) == 0 do
+    [factor|factorize(div(number, factor), factor, prime_factors)]
+  end
 
-    	generate(number,3)  # run the odd number calculations, starting from 3
-
-    end
-
-    def generate(number, idx) do 
-    	
-    	#for composite numbers
-    	if idx <= :math.sqrt(number) do 
-
-    		if rem(number,idx) == 0 do  
-
-	    		[idx | generate(div(number,idx), idx )]  
-    
-	    	else
-
-	    		generate(number, idx + 2 ) 
-
-    		end
-
-    	#for prime numbers
-    	else
-
-    		[ number ]  
-
-	    end
-    end
+  defp factorize(number, factor, prime_factors) do
+    factorize(number, factor + 1, prime_factors)
+  end
 
 
 end

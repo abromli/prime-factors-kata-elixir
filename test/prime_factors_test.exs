@@ -9,10 +9,11 @@ defmodule PrimeFactorsTest do
   					{ 784,  [2,2,2,2,7,7]},
   					{ 1256, [2,2,2,157]},
   					{ 9,    [3,3] },
-  					{ 8,    [2,2,2]}
+  					{ 8,    [2,2,2]},
+  					{ 901255, [5, 17, 23, 461]}
   				  ]
 
-  	Enum.each test_values, fn({candidate, factorials}) -> assert PrimeFactors.generate(candidate) == factorials end
+  	Enum.each test_values, fn({candidate, factorials}) -> assert PrimeFactors.factors_for(candidate) == factorials end
 
   end
 
